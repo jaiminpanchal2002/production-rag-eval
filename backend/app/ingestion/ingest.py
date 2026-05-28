@@ -3,7 +3,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
  
-# STEP 1: Load PDF
 loader = PyPDFLoader("../docs/sample_pdfs/sample.pdf")
 documents = loader.load()
  
@@ -28,9 +27,9 @@ embedding = HuggingFaceEmbeddings(
 vectorstore = Chroma.from_documents(
     docs,
     embedding=embedding,
-    persist_directory="./chroma_db"
+   persist_directory="./chroma_db"
 )
  
-# vectorstore.persist()
+ 
  
 print("Documents embedded successfully!")
